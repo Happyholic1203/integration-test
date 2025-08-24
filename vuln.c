@@ -26,7 +26,7 @@ bool person_info_parse_file(person_info_t * person_info, const char * const in, 
     // Skip whitespace after colon
     for (; last_pos < in_len && isspace(in[last_pos]); last_pos++);
 
-    strcpy(person_info->name, in + last_pos);
+    strncpy(person_info->name, in + last_pos, in_len - last_pos);
 
     return true;
 }
