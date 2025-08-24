@@ -35,7 +35,7 @@ bool run_test(input_t input) {
     test_result_t actual = {};
     bool success;
 
-    actual.return_code = person_info_parse_file(&actual.person, input.in);
+    actual.return_code = person_info_parse_file(&actual.person, input.in, strlen(input.in));
     if (input.expected.return_code == actual.return_code) {
         if (actual.return_code) {
             // Success expected. Check the parsed string

@@ -18,9 +18,10 @@ typedef struct person_info_t {
  * 
  * @param person_info The output person_info_t structure that the in parameter gets parsed to
  * @param in The string that gets parsed into person_info. 
+ * @param in_len The length of the input string to prevent buffer overflows
  * @return success or failure to parse input
  */
-bool person_info_parse_file(person_info_t * person_info, const char * const in);
+bool person_info_parse_file(person_info_t * person_info, const char * const in, size_t in_len);
 
 
 
