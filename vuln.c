@@ -25,25 +25,8 @@ bool person_info_parse_file(person_info_t * person_info, const char * const in, 
 
     // Skip whitespace after colon
     for (; last_pos < in_len && isspace(in[last_pos]); last_pos++);
-    
-    // Copy the name into person_info->name
-    int name_start = last_pos;
-    int name_len = 0;
-    
-    // Count characters until we hit whitespace or end of string
-    int temp_pos = last_pos;
-    while (temp_pos < in_len && !isspace(in[temp_pos])) {
-        temp_pos++;
-        name_len++;
-    }
-    
-    // Copy the name, ensuring we don't exceed MAX_STRLEN
-    if (name_len >= MAX_STRLEN) {
-        name_len = MAX_STRLEN - 1;
-    }
-    
-    strncpy(person_info->name, in + name_start, name_len);
-    person_info->name[name_len] = '\0'; // Ensure null termination
+
+    strcpy(person_info->name, in + last_pos);
 
     return true;
 }
